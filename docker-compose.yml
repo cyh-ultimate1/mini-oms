@@ -1,0 +1,30 @@
+services:
+  redis:
+    image: redis:8-alpine
+    ports:
+      - "6379:6379"
+  omsservice:
+    build: 
+      context: ./minioms-backend
+      dockerfile: MiniOMS.OmsService/Dockerfile
+    environment:
+      - ConnectionStrings__Redis=redis:6379,abortConnect=false
+    depends_on: [redis]
+    restart: unless-stopped
+  webapi:
+    build: 
+      context: ./minioms-backend
+      dockerfile: MiniOMS.WebApi/Dockerfile
+    environment:
+      - ConnectionStrings__Redis=redis:6379,abortConnect=false
+    depends_on: [redis]
+    restart: unless-stopped
+    ports: 
+      - "8080:8080"
+  frontend:
+    build:
+      context: ./minioms-frontend
+    ports:
+      - "3000:80"
+    depends_on: [webapi]
+    restart: unless-stopped

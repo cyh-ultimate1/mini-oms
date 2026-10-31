@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="../docker-compose.yml" />
+    <File Path=".dockerignore" />
+  </Folder>
+  <Project Path="MiniOMS.Benchmarks/MiniOMS.Benchmarks.csproj" />
+  <Project Path="MiniOMS.ConsoleClient/MiniOMS.ConsoleClient.csproj" />
+  <Project Path="MiniOMS.Core/MiniOMS.Core.csproj" />
+  <Project Path="MiniOMS.Domain/MiniOMS.Domain.csproj" />
+  <Project Path="MiniOMS.Exchange/MiniOMS.Exchange.csproj" />
+  <Project Path="MiniOMS.LoadGen/MiniOMS.LoadGen.csproj" />
+  <Project Path="MiniOMS.Messaging/MiniOMS.Messaging.csproj" />
+  <Project Path="MiniOMS.OmsService/MiniOMS.OmsService.csproj" />
+  <Project Path="MiniOMS.Tests/MiniOMS.Tests.csproj" />
+  <Project Path="MiniOMS.WebApi/MiniOMS.WebApi.csproj" />
+</Solution>

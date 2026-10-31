@@ -1,0 +1,44 @@
+# ---------- Secrets (never commit) ----------
+.env
+.env.*
+!.env.example
+*.pfx
+*.pem
+*.key
+secrets.json
+appsettings.*.local.json
+*.http-client.env.json.user
+http-client.env.json.user
+
+# ---------- .NET build output ----------
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+TestResults/
+BenchmarkDotNet.Artifacts/
+*.nupkg
+
+# ---------- Visual Studio / Rider / VS Code (personal settings) ----------
+.vs/
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.user
+*.suo
+*.userprefs
+*.slnLaunch.user
+
+# ---------- Node / frontend ----------
+node_modules/
+dist/
+dist-ssr/
+*.local
+*.log
+
+# ---------- OS ----------
+.DS_Store
+Thumbs.db
+
+# ---------- Personal notes ----------
+MiniOMS-benchmark-tests.md

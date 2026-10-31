@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-MiniOMS.OmsService-18cc0a11-c0dd-4259-ae86-8762f8f373fa</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MiniOMS.Core\MiniOMS.Core.csproj" />
+    <ProjectReference Include="..\MiniOMS.Messaging\MiniOMS.Messaging.csproj" />
+  </ItemGroup>
+</Project>

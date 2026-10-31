@@ -1,0 +1,41 @@
+# select host from the env dropdown list.
+# @host
+
+# Change this before each run (a reused ClOrdID is rejected as a duplicate)
+@cancelId = 44444444-4444-4444-4444-444444444401
+
+### Place a limit buy (change ClOrdID each time)
+POST {{host}}/api/orders
+Content-Type: application/json
+
+{ "ClOrdID": "33333333-3333-3333-3333-333333333333", "Symbol": "ACME", "Side": "Buy", "OrderType": "Limit", "Quantity": 100, "LimitPrice": 100.05 }
+
+### Place a limit buy (change ClOrdID each time)
+POST {{host}}/api/orders
+Content-Type: application/json
+
+{ "ClOrdID": "33333333-3333-3333-3333-333333333334", "Symbol": "ACME", "Side": "Buy", "OrderType": "Limit", "Quantity": 200, "LimitPrice": 100.05 }
+
+### Place a limit buy (change ClOrdID each time)
+POST {{host}}/api/orders
+Content-Type: application/json
+
+{ "ClOrdID": "33333333-3333-3333-3333-333333333335", "Symbol": "ACME", "Side": "Buy", "OrderType": "Limit", "Quantity": 100, "LimitPrice": 200.05 }
+
+### Place a limit buy that RESTS (99.50 is below the best ask, so it won't fill)
+POST {{host}}/api/orders
+Content-Type: application/json
+
+{ "ClOrdID": "{{cancelId}}", "Symbol": "ACME", "Side": "Buy", "OrderType": "Limit", "Quantity": 100, "LimitPrice": 99.50 }
+
+### Cancel the resting order above (expect Cancelled 0/100)
+DELETE {{host}}/api/orders/{{cancelId}}
+
+### Cancel an unknown order (expect CommandRejected "Unknown ClOrdID")
+DELETE {{host}}/api/orders/99999999-9999-9999-9999-999999999999
+
+### Get all orders
+GET {{host}}/api/orders
+
+### Get positions
+GET {{host}}/api/positions
